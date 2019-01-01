@@ -3,15 +3,34 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  # Use inject method from array to run inner code block (sum of all elements)
+  # 0 as the base case in the event the array passed in is empty
+  arr.inject(0){ |sum, x| sum+x }
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  # If empty array output 0, if 1 element output said element, otherwise get the 2 maximums and sum
+  if arr.length == 0
+    0
+  elsif arr.length == 1
+    arr.at(0)
+  else
+    arr.max(2).reduce(:+)
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  # If array is of length 1, then return false, otherwise, index array and see if n can be summed from 2 nums
+  if arr.length == 1
+    return false
+  end
+  arr.each_with_index do |x,i|
+    k = n - x
+    if arr.bsearch_index{|y| k<=>y}
+      return true
+    end
+  end
+  return false
 end
 
 # Part 2
