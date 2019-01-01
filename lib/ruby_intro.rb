@@ -36,15 +36,25 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  # Concat strings
+  "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  # Regex statement to avoid vowels. Must be a word and case is ignored
+  if /^[^aeiou\W]/i.match(s) == nil
+    false
+  else
+    true
+  end
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if /^[10]*00$/.match(s) == nil
+    false
+  else
+    true
+  end
 end
 
 # Part 3
