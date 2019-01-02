@@ -59,6 +59,20 @@ end
 
 # Part 3
 
-class BookInStock
-# YOUR CODE HERE
+class BookInStock 
+  # YOUR CODE HERE
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = price
+    if isbn.empty? || price <= 0
+      raise ArgumentError.new("Empty ISBN or price below 0!")
+    end
+  end
+  
+  def price_as_string
+    output = "$%.2f" % price
+  end
+  
+  attr_accessor :isbn
+  attr_accessor :price
 end
