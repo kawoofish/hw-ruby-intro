@@ -50,10 +50,10 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  if /^[10]*00$/.match(s) == nil
-    false
+  if /^(0|(10|111*0)(10|111*0)*0)+$/.match(s) == nil
+    return false
   else
-    true
+    return true
   end
 end
 
